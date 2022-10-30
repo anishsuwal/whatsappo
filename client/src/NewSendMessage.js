@@ -3,8 +3,8 @@
 
 import { useRef, useState, useEffect, React } from 'react';
 import { FileUploader } from "react-drag-drop-files";
-import axios from "axios";
 import readXlsxFile from 'read-excel-file'
+import { axiosInstance } from './config';
 
 const fileTypes = ["JPEG", "JPG", "PNG", "GIF", "MP4"];
 const xlFile = ["XLS", "XLSX"];
@@ -126,7 +126,7 @@ export default function SendMessage() {
     async function uploadFile() {
         const formData = new FormData();
         formData.append('file', file);
-        const res = await axios.post('/upload', formData, {
+        const res = await axiosInstance.post('/upload', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -138,7 +138,7 @@ export default function SendMessage() {
     async function SendNow() {
         for (var i = fNumber; i <= tNumber; i++) {
             if (file === null) {
-                await axios.post('/apiSendMessage', {
+                await axiosInstance.post('/apiSendMessage', {
                     phone: "+" + conCode + String(i),
                     //phone: "+" + conCode + "984145315",
                     message: msg
@@ -154,7 +154,7 @@ export default function SendMessage() {
             }
 
             else {
-                await axios.post('/apiSendMessageWithAttachment', {
+                await axiosInstance.post('/apiSendMessageWithAttachment', {
                     phone: "+" + conCode + String(i),
                     //phone: "+" + conCode + "9841453151",
                     message: msg,
@@ -179,7 +179,7 @@ export default function SendMessage() {
             const phone = rows
             if (file === null) {
                 for (var i = 0; i < phone.length; i++) {
-                    await axios.post('/apiSendMessage', {
+                    await axiosInstance.post('/apiSendMessage', {
                         phone: String(phone[i]),
                         message: msg
                     })
@@ -195,7 +195,7 @@ export default function SendMessage() {
             }
             else {
                 for (var i = 0; i < phone.length; i++) {
-                    await axios.post('/apiSendMessageWithAttachment', {
+                    await axiosInstance.post('/apiSendMessageWithAttachment', {
                         phone: String(phone[i]),
                         message: msg,
                         fileName: file.name

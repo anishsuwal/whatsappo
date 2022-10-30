@@ -1,8 +1,8 @@
-import axios from "axios";
 import {useEffect,useState} from "react";
 import QrCodeScan from "./QrCodeScan";
 import Loader from "./loader";
 import SendMessage from "./SendMessage";
+import { axiosInstance } from "./config";
 
 
 
@@ -14,7 +14,7 @@ export default function App() {
 
 useEffect(() => {
    async function getQrPost() {
-      const response = await axios.get("/api",'anish');
+      const response = await axiosInstance.get("/api",'anish');
       setQrCode(response.data["qr"]);
       setIsLoading(true)
     }
@@ -23,7 +23,7 @@ useEffect(() => {
 
   useEffect(() =>{
     async function getStatus() {
-    const resposne = await axios.get("/getStatus");
+    const resposne = await axiosInstance.get("/getStatus");
     setStatus(resposne)
     setLoginStatus(true)
     console.log(status)
