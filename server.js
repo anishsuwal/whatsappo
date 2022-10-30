@@ -37,7 +37,7 @@ console.log(chrome.defaultViewport)
 console.log(chrome)
 
 
-app.get('/api', async (req, res) => {
+app.get('/api/qrcode', async (req, res) => {
     console.log("starting",req.body)
     try {
         await client.on('qr', (qr) => {
@@ -51,7 +51,7 @@ app.get('/api', async (req, res) => {
         res.send( err)
     }
 })
-app.get("/getStatus", (req, res) => {
+app.get("/api/getStatus", (req, res) => {
     try{
         client.on('ready', () => {
             console.log('Client is ready!');
@@ -63,7 +63,7 @@ app.get("/getStatus", (req, res) => {
     }
 });
 // Upload Endpoint
-app.post('/upload', (req, res) => {
+app.post('api/upload', (req, res) => {
     if (req.files === null) {
       return res.status(400).json({ msg: 'No file uploaded' });
     }
@@ -77,7 +77,7 @@ app.post('/upload', (req, res) => {
     });
   });
 
-app.post("/apiSendMessage", (req, res) => {
+app.post("/api/apiSendMessage", (req, res) => {
     const number = req.body['phone'];
     console.log(req.body)
     // Your message.
@@ -105,7 +105,7 @@ app.post("/apiSendMessage", (req, res) => {
       }
 })
 
-app.post("/apiSendMessageWithAttachment", (req, res) => {
+app.post("/api/apiSendMessageWithAttachment", (req, res) => {
     const number = req.body['phone'];
     console.log(req.body,number)
     // Your message.
@@ -132,7 +132,7 @@ client.initialize();
 
 app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.get('*', (req, res) => {
+app.get('/api', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 

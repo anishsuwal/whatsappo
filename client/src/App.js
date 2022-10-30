@@ -14,7 +14,7 @@ export default function App() {
 
 useEffect(() => {
    async function getQrPost() {
-      const response = await axiosInstance.get("/api",'anish');
+      const response = await axiosInstance.get("/api/qrcode",'anish');
       setQrCode(response.data["qr"]);
       setIsLoading(true)
     }
@@ -23,7 +23,7 @@ useEffect(() => {
 
   useEffect(() =>{
     async function getStatus() {
-    const resposne = await axiosInstance.get("/getStatus");
+    const resposne = await axiosInstance.get("/api/getStatus");
     setStatus(resposne)
     setLoginStatus(true)
     console.log(status)
