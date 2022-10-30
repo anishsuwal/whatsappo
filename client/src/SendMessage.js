@@ -157,7 +157,7 @@ export default function SendMessage() {
                 break;
             }
             if (file === null) {
-                await axiosInstance.post('/api/apiSendMessage', {
+                await axiosInstance.post('/apiSendMessage', {
                     phone: "+" + conCode + String(i),
                     //phone: "+" + conCode + "984145315",
                     message: msg
@@ -172,7 +172,7 @@ export default function SendMessage() {
             }
 
             else {
-                await axiosInstance.post('/api/apiSendMessageWithAttachment', {
+                await axiosInstance.post('/apiSendMessageWithAttachment', {
                     phone: "+" + conCode + String(i),
                     //phone: "+" + conCode + "9841453151",
                     message: msg,
@@ -202,7 +202,7 @@ export default function SendMessage() {
                     break;
                 }
                 if (file === null) {
-                    await axiosInstance.post('/api/apiSendMessage', {
+                    await axiosInstance.post('/apiSendMessage', {
                         phone: String(phone[i]),
                         message: msg
                     })
@@ -218,7 +218,7 @@ export default function SendMessage() {
 
                 else {
 
-                    await axiosInstance.post('api/apiSendMessageWithAttachment', {
+                    await axiosInstance.post('/apiSendMessageWithAttachment', {
                         phone: String(phone[i]),
                         message: msg,
                         fileName: file.name
