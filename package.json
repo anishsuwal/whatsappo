@@ -8,7 +8,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "engines": {
-    "node": "14x"
+    "node": "16.14.2"
     },
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
