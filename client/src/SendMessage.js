@@ -250,15 +250,7 @@ export default function SendMessage() {
     function timeout(delay) {
         return new Promise(res => setTimeout(res, delay));
     }
-    function readExcelFile() {
-        readXlsxFile(fileExcel).then(async function (rows) {
-            const ph = rows
-            for (var i = 0; i < ph.length; i++) {
-                console.log((ph[i]))
-                await timeout(5000);
-            }
-        })
-    }
+
 
     return (
         <>
