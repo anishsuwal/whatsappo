@@ -139,8 +139,7 @@ app.post("/api/apiSendMessageWithAttachment", (req, res) => {
         }      
     })
 })
-client.initialize();
-
+client.initialize().catch(console.log);
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', function(req, res) {
