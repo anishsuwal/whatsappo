@@ -40,7 +40,7 @@ export default function Disclaimer() {
                     NOTE: We can't guarantee you will not be blocked by using this method,
                     although it has worked for all. WhatsApp does not allow bots or unofficial
                     clients on their platform, so this shouldn't be considered totally safe. We suggest not to use the personal
-                    accounts to use.
+                    accounts.
                 </p>
             </div>
     )
