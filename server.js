@@ -21,7 +21,7 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
     puppeteer = require('puppeteer');
   }
 
-  const whitelist = ['http://localhost:5000', 'http://localhost:8080', 'https://whatsappoo.herokuapp...']
+  /*const whitelist = ['http://localhost:5000', 'http://localhost:8080', 'https://whatsappoo.herokuapp...']
   const corsOptions = {
     origin: function (origin, callback) {
       console.log("** Origin of request " + origin)
@@ -34,8 +34,8 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
       }
     }
   }
-  app.use(cors(corsOptions))
-  //app.use(cors());
+  app.use(cors(corsOptions))*/
+  app.use(cors());
 
 const client = new Client({
 	puppeteer: {
