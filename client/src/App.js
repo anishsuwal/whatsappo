@@ -27,7 +27,7 @@ export default function App() {
 
   useEffect(() =>{
     async function getStatus() {
-    const resposne = await axios.get("api/getStatus");
+    const resposne = await axios.get("/getStatus");
     
     if(resposne!="")
     {
@@ -40,7 +40,7 @@ export default function App() {
   },[status])
 
   const getQRCode = async () => {
-    const response = await axios.post("/api/qrcode", "start" );
+    const response = await axios.post("/qrcode", "start" );
     setQrCode(response.data["qr"]);
     setIsLoading(true);
   };

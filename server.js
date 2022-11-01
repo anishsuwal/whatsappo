@@ -52,7 +52,7 @@ console.log(chrome.defaultViewport)
 console.log(chrome)
 
 
-app.post('/api/qrcode', async (req, res) => {
+app.post('/qrcode', async (req, res) => {
     console.log("starting",req.body)
     try {
         await client.on('qr', (qr) => {
@@ -66,7 +66,7 @@ app.post('/api/qrcode', async (req, res) => {
         res.send( err)
     }
 })
-app.get("/api/getStatus", (req, res) => {
+app.get("/getStatus", (req, res) => {
     try{
         client.on('ready', () => {
             console.log('Client is ready!');
@@ -78,7 +78,7 @@ app.get("/api/getStatus", (req, res) => {
     }
 });
 // Upload Endpoint
-app.post('api/upload', (req, res) => {
+app.post('/upload', (req, res) => {
     if (req.files === null) {
       return res.status(400).json({ msg: 'No file uploaded' });
     }
@@ -92,7 +92,7 @@ app.post('api/upload', (req, res) => {
     });
   });
 
-app.post("/api/apiSendMessage", (req, res) => {
+app.post("/apiSendMessage", (req, res) => {
     const number = req.body['phone'];
     console.log(req.body)
     // Your message.
@@ -120,7 +120,7 @@ app.post("/api/apiSendMessage", (req, res) => {
       }
 })
 
-app.post("/api/apiSendMessageWithAttachment", (req, res) => {
+app.post("/apiSendMessageWithAttachment", (req, res) => {
     const number = req.body['phone'];
     console.log(req.body,number)
     // Your message.
