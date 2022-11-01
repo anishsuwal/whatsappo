@@ -21,7 +21,7 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
     puppeteer = require('puppeteer');
   }
 
-  const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://whatsappoo.herokuapp...']
+  const whitelist = ['http://localhost:5000', 'http://localhost:8080', 'https://whatsappoo.herokuapp...']
   const corsOptions = {
     origin: function (origin, callback) {
       console.log("** Origin of request " + origin)
@@ -35,6 +35,8 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
     }
   }
   app.use(cors(corsOptions))
+  //app.use(cors());
+
 const client = new Client({
 	puppeteer: {
 		args: ['--no-sandbox','--hide-scrollbars', '--disable-web-security'],
@@ -50,7 +52,7 @@ console.log(chrome.defaultViewport)
 console.log(chrome)
 
 
-app.get('/api/qrcode', async (req, res) => {
+app.post('/api/qrcode', async (req, res) => {
     console.log("starting",req.body)
     try {
         await client.on('qr', (qr) => {
