@@ -254,15 +254,15 @@ export default function SendMessage() {
 
     return (
         <>
-            <div className="justify-center items-center  text-bold px-5 xl:ml-10 xl:mr-10    mt-5  ">
+            <div className="justify-center items-center  text-bold px-5      ">
                 <div className="  p-3   items-center justify-center text-center ">
                     <p className="text-xl md:text-2xl font-bold text-green-600">Your What'sApp Messages </p>
                 </div>
-                <div className='flex flex-col-3 justify-between  '>
+                <div className='flex flex-col-3 justify-between gap-x-1'>
                     <div className=' text-center rounded-lg shadow-2xl bg-green-900 text-black  p-3'>
                         <span className='text-orange-400 text-lg font-semibold'>Succefully Delivered</span>
                         <div className="overflow-y-auto bg-green-400 
-                    p-5 h-[580px] w-52 text-justify rounded-3xl mt-5">
+                    p-5 h-[500px] w-52 text-justify rounded-3xl mt-5">
                             {success.map((link, index) => (
                                 <p key={index} className=' font-medium text-center text-sm '>
                                     <span>({index + 1}) </span>
@@ -271,7 +271,7 @@ export default function SendMessage() {
                         </div>
                     </div>
                     <div>
-                        <div className=" items-center rounded-lg shadow-2xl bg-white  p-2 ">
+                        <div className=" items-center rounded-lg shadow-2xl ring-1 bg-white  p-2 ">
                             <p className="md:text-xs xl:text-lg font-semibold p-5 shadow-lg mt-2 border-t rounded-lg text-center">Please Enter details</p>
 
                             <form ref={form} onSubmit={sendMsg} >
@@ -368,13 +368,13 @@ export default function SendMessage() {
                                 </div>
 
                                 <div className="flex flex-row justify-between   items-center ">
-                                    <div className='m-5 p-5 rounded-2xl border h-80'>
+                                    <div className='m-5 p-5 rounded-2xl border h-64'>
                                         <p className='text-center font-semibold border-b-2' >Enter Your Message Here ::</p>
                                         <textarea disabled={isDisabled}
                                             rows="4"
                                             className="block p-2.5 
                                                         w-96
-                                                        h-60
+                                                        h-48
                                                         text-sm
                                                         bg-clip-padding 
                                                         transition
@@ -386,7 +386,7 @@ export default function SendMessage() {
                                             placeholder="Enter Your Message Here"
                                             id="message" name='message' type="text" onChange={e => setMsg(e.target.value)} />
                                     </div>
-                                    <div className='m-5 p-5 rounded-2xl border w-full h-80 '>
+                                    <div className='m-5 p-5 rounded-2xl border w-full h-64 '>
                                         <span className='text-center font-semibold border-b-2' >Attach Your Image of Video File Here::</span>
                                         <div >
                                             <FileUploader
@@ -422,9 +422,8 @@ export default function SendMessage() {
 
                                 <div className="flex  w-full  items-center justify-center text-center  ">
                                     {!isDisabled ?
-                                        <button disabled={isDisabled} className=" border bg-green-600 
-                                                        rounded-lg py-2 px-10  text-xs lg:text-sm text-white shadow-2xl
-                                                        shadow-black hover:bg-green-300 hover:text-green-600 "
+                                        <button disabled={isDisabled} className=" border 
+                                        rounded-lg py-2 px-10  text-xs lg:text-sm bg-[#88c6bd] text-green-700 font-bold hover:bg-[#50a79e] hover:text-white "
                                         >Send Message
                                         </button>
                                         :
@@ -440,7 +439,7 @@ export default function SendMessage() {
                     <div className=' text-center rounded-lg shadow-2xl bg-black text-cyan-50  p-3 '>
                         <span className='text-red-700 text-lg font-semibold'>Not Registered</span>
                         <div className="overflow-y-auto bg-slate-800 
-                                        p-3 h-[580px] w-52 text-justify rounded-3xl text-red-400 mt-5">
+                                        p-3 h-[500px] w-52 text-justify rounded-3xl text-red-400 mt-5">
                             {notRegister.map((link, index) => (
                                 <p key={index} className=' font-medium text-center text-sm '>
                                     <span>({index + 1}) : </span>
