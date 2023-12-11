@@ -31,10 +31,11 @@ export default function App() {
 
   useEffect(() => {
     async function getStatus() {
-      const resposne = await axios.get("/getStatus");
-
-      if (resposne != "") {
-        setStatus(resposne)
+      const response = await axios.get("/getStatus");
+      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxx",response.data)
+      if (response.data === true) {
+        console.log("inside")
+        setStatus(response)
         setLoginStatus(true)
       }
       //console.log(status)

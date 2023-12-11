@@ -24,3 +24,6 @@ app.use(fileUpload());
 });*/
 
 //app.listen(5000, () => console.log('Server Started...'));
+
+
+//   "whatsapp-web.js": "^1.18.3"

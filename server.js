@@ -1,5 +1,5 @@
 
-const { Client, MessageMedia } = require('whatsapp-web.js');
+const {LocalAuth, Client, MessageMedia } = require('whatsapp-web.js');
 const express = require('express')
 const cors = require("cors");
 const fileUpload = require('express-fileupload');
@@ -38,6 +38,7 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   app.use(cors());
 
 const client = new Client({
+ // authStrategy: new LocalAuth(),
 	puppeteer: {
 		args: ['--no-sandbox','--hide-scrollbars', '--disable-web-security'],
         defaultViewport: chrome.defaultViewport,
@@ -106,6 +107,7 @@ app.post("/apiSendMessage", (req, res) => {
                 res.send("0")
             }
             else {
+                await client.sendMessage(chatId, text);
                 res.send("1")
             }
         })

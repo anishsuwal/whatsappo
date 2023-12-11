@@ -184,7 +184,7 @@ export default function SendMessage() {
                     .catch(function (error) {
                         alert(error);
                     });
-                await timeout(30000); //for 10 sec delay
+                await timeout(30000); //for 3cd ap0 sec delay
 
             }
         }
